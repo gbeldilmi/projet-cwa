@@ -68,7 +68,7 @@ export class Task {
     this.name = name;
     this.description = description;
     this.priority = priority;
-    this.status = 'Pending';
+    this.status = 'Ongoing';
     this.dueDate = dueDate;
     this.creationDate = new Date().toLocaleDateString('sv');
   }
