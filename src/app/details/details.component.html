@@ -1,1 +1,33 @@
-<p>details works!</p>
+<h1>Task Details</h1>
+<div class="cmd-panel">
+  <button (click)="back()">Back</button>
+  <button *ngIf="this.task.status != 'Done'" (click)="setDone()">Done</button>
+  <button (click)="edit()">Edit</button>
+  <button (click)="delete()">Delete</button>
+</div>
+<div class="details-container">
+  <div>
+    <h2>Name :</h2>
+    <p>{{this.task.name}}</p>
+  </div>
+  <div>
+    <h2>Description :</h2>
+    <p>{{this.task.description}}</p>
+  </div>
+  <div>
+    <h2>Priority :</h2>
+    <p>{{this.task.priority}}</p>
+  </div>
+  <div>
+    <h2>Status :</h2>
+    <p>{{this.task.status}}</p>
+  </div>
+  <div>
+    <h2>Due Date :</h2>
+    <p>{{this.task.dueDate}}</p>
+  </div>
+  <div>
+    <h2>Creation Date :</h2>
+    <p>{{this.task.creationDate}}</p>
+  </div>
+</div>

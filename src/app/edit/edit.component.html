@@ -1,1 +1,26 @@
-<p>edit works!</p>
+<h1>Edit Task</h1>
+<div class="cmd-panel">
+  <button (click)="cancel()">Cancel</button>
+</div>
+<div class="edit-container">
+  <form (submit)="submit()">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" placeholder="Name" required="required" [value]="task.name">
+    <label for="description">Description</label>
+    <input type="text" id="description" name="description" placeholder="Description" required="required" [value]="task.description">
+    <label for="priority">Priority</label>
+    <select name="priority" id="priority" required="required" [value]="task.priority">
+      <option value="Low">Low</option>
+      <option value="Medium">Medium</option>
+      <option value="High">High</option>
+    </select>
+    <label for="status">Status</label>
+    <select name="status" id="status" required="required" [value]="task.status">
+      <option value="Pending">Pending</option>
+      <option value="Done">Done</option>
+    </select>
+    <label for="dueDate">Due date</label>
+    <input type="date" id="dueDate" name="dueDate" required="required" [value]="task.dueDate">
+    <input type="submit"  value="Confirm">
+  </form>
+</div>

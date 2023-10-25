@@ -1,1 +1,21 @@
-<p>create works!</p>
+<h1>Create New Task</h1>
+<div class="cmd-panel">
+  <button (click)="cancel()">Cancel</button>
+</div>
+<div class="create-container">
+  <form (submit)="submit()">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" placeholder="Name" required="required">
+    <label for="description">Description</label>
+    <input type="text" id="description" name="description" placeholder="Description" required="required">
+    <label for="priority">Priority</label>
+    <select name="priority" id="priority" required="required">
+      <option value="Low">Low</option>
+      <option value="Medium">Medium</option>
+      <option value="High">High</option>
+    </select>
+    <label for="dueDate">Due date</label>
+    <input type="date" id="dueDate" name="dueDate" required="required">
+    <input type="submit"  value="Confirm">
+  </form>
+</div>

@@ -1,1 +1,26 @@
-<p>list works!</p>
+<h1>Task List</h1>
+<div class="cmd-panel">
+  <button (click)="create()">Create new Tak</button>
+  <div>
+    <label>Filter by :</label>
+    <!--
+      Todo
+    -->
+  </div>
+  <input type="checkbox" name="show-done" id="show-done">
+  <label for="show-done">Show done tasks</label>
+</div>
+<div class="list-container">
+  <button
+    *ngFor="let task of this.tasks; let i = index"
+    (click)="details(i)"
+    class="task-container">
+    <h2>{{task.name}}</h2>
+    <p>{{task.description}}</p>
+    <p>{{task.priority}}</p> 
+    <p>{{task.status}}</p>
+    <p>{{task.dueDate}}</p>
+    <p>{{task.creationDate}}</p>
+  </button>
+  <p *ngIf="this.tasks.length === 0">No tasks to show</p>
+</div>

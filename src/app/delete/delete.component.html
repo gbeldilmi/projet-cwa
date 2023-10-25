@@ -1,1 +1,16 @@
-<p>delete works!</p>
+<h1>Delete Task</h1>
+<div class="cmd-panel">
+  <button (click)="cancel()">Cancel</button>
+  <button (click)="delete()">Delete</button>
+</div>
+<div class="delete-container">
+  <p>Are you sure you want to delete this task ?</p>
+  <div class="task-container">
+    <h2>{{this.task.name}}</h2>
+    <p>{{this.task.description}}</p>
+    <p>{{this.task.priority}}</p>
+    <p>{{this.task.status}}</p>
+    <p>{{this.task.dueDate}}</p>
+    <p>{{this.task.creationDate}}</p>
+  </div>
+</div>
