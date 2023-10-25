@@ -5,13 +5,13 @@
     <div>
       <label>Filter by :</label>
       <label for="status">Status</label>
-      <select name="status" id="status">
+      <select name="status" id="status" (change)="sort()">
         <option value="All">All</option>
         <option value="Pending">Pending</option>
         <option value="Done">Done</option>
       </select>
       <label for="priority">Priority</label>
-      <select name="priority" id="priority">
+      <select name="priority" id="priority" (change)="sort()">
         <option value="All">All</option>
         <option value="High">High</option>
         <option value="Medium">Medium</option>
@@ -20,18 +20,17 @@
     </div>
     <div>
       <label for="attr">Sort by :</label>
-      <select name="attr" id="attr">
+      <select name="attr" id="attr" (change)="sort()">
         <option value="name">Name</option>
         <option value="priority">Priority</option>
         <option value="dueDate">Due Date</option>
         <option value="creationDate">Creation Date</option>
       </select>
-      <select name="order" id="order">
+      <select name="order" id="order" (change)="sort()">
         <option value="asc">Ascending</option>
         <option value="desc">Descending</option>
       </select>
     </div>
-    <button (click)="sort()">Apply</button>
   </div>
 </div>
 <div class="list-container">
