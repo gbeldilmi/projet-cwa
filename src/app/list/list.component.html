@@ -2,25 +2,49 @@
 <div class="cmd-panel">
   <button (click)="create()">Create new Tak</button>
   <div>
-    <label>Filter by :</label>
-    <!--
-      Todo
-    -->
+    <div>
+      <label>Filter by :</label>
+      <label for="status">Status</label>
+      <select name="status" id="status">
+        <option value="All">All</option>
+        <option value="Pending">Pending</option>
+        <option value="Done">Done</option>
+      </select>
+      <label for="priority">Priority</label>
+      <select name="priority" id="priority">
+        <option value="All">All</option>
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
+      </select>
+    </div>
+    <div>
+      <label for="attr">Sort by :</label>
+      <select name="attr" id="attr">
+        <option value="name">Name</option>
+        <option value="priority">Priority</option>
+        <option value="dueDate">Due Date</option>
+        <option value="creationDate">Creation Date</option>
+      </select>
+      <select name="order" id="order">
+        <option value="asc">Ascending</option>
+        <option value="desc">Descending</option>
+      </select>
+    </div>
+    <button (click)="sort()">Apply</button>
   </div>
-  <input type="checkbox" name="show-done" id="show-done">
-  <label for="show-done">Show done tasks</label>
 </div>
 <div class="list-container">
   <button
-    *ngFor="let task of this.tasks; let i = index"
-    (click)="details(i)"
+    *ngFor="let task of this.tasks"
+    (click)="details(task[0])"
     class="task-container">
-    <h2>{{task.name}}</h2>
-    <p>{{task.description}}</p>
-    <p>{{task.priority}}</p> 
-    <p>{{task.status}}</p>
-    <p>{{task.dueDate}}</p>
-    <p>{{task.creationDate}}</p>
+    <h2>{{task[1].name}}</h2>
+    <p>{{task[1].description}}</p>
+    <p>{{task[1].priority}}</p> 
+    <p>{{task[1].status}}</p>
+    <p>{{task[1].dueDate}}</p>
+    <p>{{task[1].creationDate}}</p>
   </button>
   <p *ngIf="this.tasks.length === 0">No tasks to show</p>
 </div>
