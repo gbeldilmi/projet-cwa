@@ -1,49 +1,48 @@
 <h1>Task List</h1>
 <div class="cmd-panel">
-  <button (click)="create()">Create new Tak</button>
+  <button (click)="create()">Create new Task</button>
   <div>
-    <div>
-      <label>Filter by :</label>
-      <label for="status">Status</label>
-      <select name="status" id="status" (change)="sort()">
-        <option value="All">All</option>
-        <option value="Ongoing">Ongoing</option>
-        <option value="Done">Done</option>
-      </select>
-      <label for="priority">Priority</label>
-      <select name="priority" id="priority" (change)="sort()">
-        <option value="All">All</option>
-        <option value="High">High</option>
-        <option value="Medium">Medium</option>
-        <option value="Low">Low</option>
-      </select>
-    </div>
-    <div>
-      <label for="attr">Sort by :</label>
-      <select name="attr" id="attr" (change)="sort()">
-        <option value="name">Name</option>
-        <option value="priority">Priority</option>
-        <option value="dueDate">Due Date</option>
-        <option value="creationDate">Creation Date</option>
-      </select>
-      <select name="order" id="order" (change)="sort()">
-        <option value="asc">Ascending</option>
-        <option value="desc">Descending</option>
-      </select>
-    </div>
+    <label>Filter by :</label>
+    <label for="status">Status</label>
+    <select name="status" id="status" (change)="sort()">
+      <option value="All">All</option>
+      <option value="Ongoing">Ongoing</option>
+      <option value="Done">Done</option>
+    </select>
+    <label for="priority">Priority</label>
+    <select name="priority" id="priority" (change)="sort()">
+      <option value="All">All</option>
+      <option value="High">High</option>
+      <option value="Medium">Medium</option>
+      <option value="Low">Low</option>
+    </select>
+  </div>
+  <div>
+    <label for="attr">Sort by :</label>
+    <select name="attr" id="attr" (change)="sort()">
+      <option value="name">Name</option>
+      <option value="priority">Priority</option>
+      <option value="dueDate">Due Date</option>
+      <option value="creationDate">Creation Date</option>
+    </select>
+    <select name="order" id="order" (change)="sort()">
+      <option value="asc">Ascending</option>
+      <option value="desc">Descending</option>
+    </select>
   </div>
 </div>
 <div class="list-container">
   <button
     *ngFor="let task of this.tasks"
-    (click)="details(task[0])"
-    class="task-container">
+    (click)="details(task[0])">
     <h2>{{task[1].name}}</h2>
     <p>{{task[1].description}}</p>
-    <p>{{task[1].priority}}</p> 
-    <p>{{task[1].status}}</p>
-    <p>{{task[1].dueDate}}</p>
-    <p>{{task[1].creationDate}}</p>
+    <div>
+      <p>Priority : {{task[1].priority}}</p> 
+      <p>Status : {{task[1].status}}</p>
+      <p>Due : {{task[1].dueDate}}</p>
+      <p>Created : {{task[1].creationDate}}</p>
+    </div>
   </button>
   <p *ngIf="this.tasks.length === 0">No tasks to show</p>
 </div>
