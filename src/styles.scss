@@ -114,7 +114,7 @@ p {
       border: solid 1px $color-accent;
       padding: 0.3rem 0.7rem;
     }
-    & :last-child {
+    input[type="submit"] {
       font-size: larger;
       margin: 1.7rem auto;
       background-color: $color-accent;

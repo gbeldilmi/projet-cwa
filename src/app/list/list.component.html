@@ -33,15 +33,15 @@
 </div>
 <div class="list-container">
   <button
-    *ngFor="let task of this.tasks"
-    (click)="details(task[0])">
-    <h2>{{task[1].name}}</h2>
-    <!--<p>{{task[1].description}}</p>-->
+    *ngFor="let t of this.tasks"
+    (click)="details(t[0])">
+    <h2>{{t[1].name}}</h2>
+    <!--<p>{{t[1].description}}</p>-->
     <div>
-      <p>Priority : {{task[1].priority}}</p> 
-      <p>Status : {{task[1].status}}</p>
-      <p>Due : {{task[1].dueDate}}</p>
-      <!--<p>Created : {{task[1].creationDate}}</p>-->
+      <p>Priority : {{t[1].priority}}</p> 
+      <p>Status : {{t[1].status}}</p>
+      <p>Due : {{t[1].dueDate}}</p>
+      <!--<p>Created : {{t[1].creationDate}}</p>-->
     </div>
   </button>
   <p *ngIf="this.tasks.length === 0">No tasks to show</p>

@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class DetailsComponent {
   task: Task;
   constructor(private manager: ManagerService, private router: Router) {
-    this.task = manager.getTask(manager.getSelectedTaskId());
+    this.task = this.manager.getTask(this.manager.getSelectedTaskId());
   }
   back() {
     this.router.navigate(['/']);
