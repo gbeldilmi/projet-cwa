@@ -1,7 +1,7 @@
 <h1>Task Details</h1>
 <div class="cmd-panel">
   <button (click)="back()">Back</button>
-  <button *ngIf="this.task.status != 'Done'" (click)="setDone()">Done</button>
+  <button *ngIf="this.task.status != 'Set as done'" (click)="setDone()">Done</button>
   <button (click)="edit()">Edit</button>
   <button (click)="delete()">Delete</button>
 </div>
