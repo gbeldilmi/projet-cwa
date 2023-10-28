@@ -13,7 +13,6 @@ export class EditComponent {
   constructor(private manager: ManagerService, private router: Router) {
     this.task = this.manager.getTask(this.manager.getSelectedTaskId());
   }
-
   cancel() {
     this.router.navigate(['/']);
   }

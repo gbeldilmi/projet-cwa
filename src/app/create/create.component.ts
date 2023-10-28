@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
 export class CreateComponent {
   constructor(private manager: ManagerService, private router: Router) {
   }
-
   cancel() {
     this.router.navigate(['/']);
   }

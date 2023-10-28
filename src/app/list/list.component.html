@@ -36,12 +36,12 @@
     *ngFor="let task of this.tasks"
     (click)="details(task[0])">
     <h2>{{task[1].name}}</h2>
-    <p>{{task[1].description}}</p>
+    <!--<p>{{task[1].description}}</p>-->
     <div>
       <p>Priority : {{task[1].priority}}</p> 
       <p>Status : {{task[1].status}}</p>
       <p>Due : {{task[1].dueDate}}</p>
-      <p>Created : {{task[1].creationDate}}</p>
+      <!--<p>Created : {{task[1].creationDate}}</p>-->
     </div>
   </button>
   <p *ngIf="this.tasks.length === 0">No tasks to show</p>

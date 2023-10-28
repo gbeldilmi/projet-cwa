@@ -13,7 +13,6 @@ export class DetailsComponent {
   constructor(private manager: ManagerService, private router: Router) {
     this.task = manager.getTask(manager.getSelectedTaskId());
   }
-
   back() {
     this.router.navigate(['/']);
   }

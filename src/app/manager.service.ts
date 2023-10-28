@@ -14,7 +14,6 @@ export class ManagerService {
   private lastId(): number {
     return this.tasks.length - 1;
   }
-
   setSelectedTaskId(id: number) {
     this.selectedTaskId = id;
   }
@@ -41,7 +40,6 @@ export class ManagerService {
     this.selectedTaskId = this.lastId();
     this.saveTasks();
   }
-
   loadTasks() {
     let tasks = localStorage.getItem('tasks');
     if (tasks) {
@@ -63,7 +61,6 @@ export class Task {
   public status: string;
   public dueDate: string;
   public creationDate: string;
-
   constructor(name: string, description: string, priority: string, dueDate: string) {
     this.name = name;
     this.description = description;
