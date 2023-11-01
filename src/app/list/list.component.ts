@@ -10,18 +10,17 @@ import { Router } from '@angular/router';
 })
 export class ListComponent {
   tasks: Array<[number, Task]>;
-  constructor(public manager: ManagerService, private router: Router) {
-    this.tasks = this.allTasks();
-  }
-  private allTasks(): Array<[number, Task]> {
-    let t = this.manager.getTasks();
-    let allTasks = new Array<[number, Task]>();
+  allTasks: Array<[number, Task]>;
+  constructor(private manager: ManagerService, private router: Router) {
+    let t = manager.getTasks();
+    this.allTasks = [];
     for (let i = 0; i < t.length; i++) {
-      allTasks.push([i, t[i]]);
+      this.allTasks.push([i, t[i]]);
     }
-    return allTasks;
+    this.tasks = this.allTasks;
   }
   details(task_id: number) {
+    console.log(task_id);
     this.manager.setSelectedTaskId(task_id);
     this.router.navigate(['/details']);
   }
@@ -29,7 +28,7 @@ export class ListComponent {
     this.router.navigate(['/create']);
   }
   sort() {
-    let t = this.allTasks();
+    let t = this.allTasks;
     let s = (<HTMLInputElement>document.getElementById('status')).value;
     if (s != 'All') {
       t = t.filter(x => x[1].status == s);

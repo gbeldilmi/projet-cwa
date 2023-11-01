@@ -4,12 +4,16 @@ import { Injectable, OnInit } from '@angular/core';
   providedIn: 'root'
 })
 export class ManagerService {
-  private tasks!: Array<Task>;
+  private tasks: Array<Task>;
   private selectedTaskId: number;
   constructor() {
+    console.log('ManagerService constructor');
     this.tasks = new Array<Task>();
-    this.selectedTaskId = this.tasks.length -1;
+    this.selectedTaskId = -1;
     this.loadTasks();
+  }
+  private lastId(): number {
+    return this.tasks.length - 1;
   }
   setSelectedTaskId(id: number) {
     this.selectedTaskId = id;
@@ -20,10 +24,10 @@ export class ManagerService {
   addTask(task?: Task) {
     if (task) {
       this.tasks.push(task);
-      this.selectedTaskId = this.tasks.length - 1;
     } else {
       console.log('No task to add');
     }
+    this.selectedTaskId = this.lastId();
     this.saveTasks();
   }
   getTasks(): Array<Task> {
@@ -34,7 +38,7 @@ export class ManagerService {
   }
   removeTask(id: number) {
     this.tasks.splice(id, 1);
-    this.selectedTaskId = this.tasks.length - 1;
+    this.selectedTaskId = this.lastId();
     this.saveTasks();
   }
   loadTasks() {
@@ -44,6 +48,7 @@ export class ManagerService {
     } else {
       console.log('No tasks found');
     }
+    this.selectedTaskId = this.lastId();
   }
   saveTasks() {
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
