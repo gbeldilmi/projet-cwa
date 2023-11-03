@@ -14,7 +14,7 @@ export class EditComponent {
     this.task = this.manager.getTask(this.manager.getSelectedTaskId());
   }
   cancel() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/details']);
   }
   submit() {
     if (this.validate()) {
