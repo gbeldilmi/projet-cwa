@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppComponent } from '../app.component';
 import { ManagerService, Task } from '../manager.service';
 import { Router } from '@angular/router';
 
@@ -10,7 +11,9 @@ import { Router } from '@angular/router';
 })
 export class DeleteComponent {
   task: Task;
-  constructor(private manager: ManagerService, private router: Router) {
+  private manager: ManagerService;
+  constructor(private router: Router, app: AppComponent) {
+    this.manager = app.getManager();
     this.task = this.manager.getTask(this.manager.getSelectedTaskId());
   }
   cancel() {

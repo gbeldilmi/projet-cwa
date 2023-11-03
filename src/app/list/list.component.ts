@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppComponent } from '../app.component';
 import { ManagerService, Task } from '../manager.service';
 import { Router } from '@angular/router';
 
@@ -11,9 +12,11 @@ import { Router } from '@angular/router';
 export class ListComponent {
   tasks: Array<[number, Task]>;
   allTasks: Array<[number, Task]>;
-  constructor(private manager: ManagerService, private router: Router) {
-    let t = manager.getTasks();
-    this.allTasks = [];
+  private manager: ManagerService;
+  constructor(private router: Router, app: AppComponent) {
+    this.manager = app.getManager();
+    let t = this.manager.getTasks();
+    this.allTasks = new Array<[number, Task]>();
     for (let i = 0; i < t.length; i++) {
       this.allTasks.push([i, t[i]]);
     }
@@ -28,7 +31,8 @@ export class ListComponent {
     this.router.navigate(['/create']);
   }
   sort() {
-    let t = this.allTasks;
+    let t = new Array<[number, Task]>();
+    this.allTasks.forEach(val => t.push(Object.assign({}, val)));
     let s = (<HTMLInputElement>document.getElementById('status')).value;
     if (s != 'All') {
       t = t.filter(x => x[1].status == s);

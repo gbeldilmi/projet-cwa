@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppComponent } from '../app.component';
 import { ManagerService, Task } from '../manager.service';
 import { Router } from '@angular/router';
 
@@ -9,7 +10,9 @@ import { Router } from '@angular/router';
   providers: [ManagerService]
 })
 export class CreateComponent {
-  constructor(private manager: ManagerService, private router: Router) {
+  private manager: ManagerService;
+  constructor(private router: Router, app: AppComponent) {
+    this.manager = app.getManager();
   }
   cancel() {
     this.router.navigate(['/']);
