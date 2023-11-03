@@ -28,6 +28,8 @@ import { DeleteComponent } from './delete/delete.component';
   providers: [
     ManagerService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

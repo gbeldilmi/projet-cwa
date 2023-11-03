@@ -7,7 +7,6 @@ export class ManagerService {
   private tasks: Array<Task>;
   private selectedTaskId: number;
   constructor() {
-    console.log('ManagerService constructor');
     this.tasks = new Array<Task>();
     this.selectedTaskId = -1;
     this.loadTasks();

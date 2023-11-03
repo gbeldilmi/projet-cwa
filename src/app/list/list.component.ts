@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { AppComponent } from '../app.component';
 import { ManagerService, Task } from '../manager.service';
 import { Router } from '@angular/router';
 
@@ -7,14 +6,12 @@ import { Router } from '@angular/router';
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
-  providers: [ManagerService]
+  providers: []
 })
 export class ListComponent {
   tasks: Array<[number, Task]>;
   allTasks: Array<[number, Task]>;
-  private manager: ManagerService;
-  constructor(private router: Router, app: AppComponent) {
-    this.manager = app.getManager();
+  constructor(private manager: ManagerService, private router: Router) {
     let t = this.manager.getTasks();
     this.allTasks = new Array<[number, Task]>();
     for (let i = 0; i < t.length; i++) {

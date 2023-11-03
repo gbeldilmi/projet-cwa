@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ManagerService } from './manager.service';
 
 @Component({
   selector: 'app-root',
@@ -9,13 +8,4 @@ import { ManagerService } from './manager.service';
 
 export class AppComponent {
   title = 'GesTaches';
-  private manager: ManagerService;
-  constructor() {
-    console.log('AppComponent constructor');
-    this.manager = new ManagerService();
-  }
-  getManager(): ManagerService {
-    console.log('AppComponent getManager');
-    return this.manager;
-  }
 }
