@@ -4,69 +4,42 @@ import { Injectable, OnInit } from '@angular/core';
   providedIn: 'root'
 })
 export class ManagerService {
-  private tasks: Array<Task>;
-  private selectedTaskId: number;
+  private tasks: Array<Task>; // Tableau pour stocker les tâches
+  private selectedTaskId: number; // ID de la tâche sélectionnée
+
   constructor() {
-    this.tasks = new Array<Task>();
-    this.selectedTaskId = -1;
-    this.loadTasks();
+    this.tasks = new Array<Task>(); // Initialisation du tableau des tâches
+    this.selectedTaskId = -1; // Initialisation de l'ID de la tâche sélectionnée
+    this.loadTasks(); // Chargement des tâches
   }
-  private lastId(): number {
+
+  private lastId(): number { // Méthode pour obtenir le dernier ID
     return this.tasks.length - 1;
   }
-  setSelectedTaskId(id: number) {
+
+  setSelectedTaskId(id: number) { // Méthode pour définir l'ID de la tâche sélectionnée
     this.selectedTaskId = id;
   }
-  getSelectedTaskId(): number {
+
+  getSelectedTaskId(): number { // Méthode pour obtenir l'ID de la tâche sélectionnée
     return this.selectedTaskId;
   }
-  addTask(task?: Task) {
+
+  addTask(task?: Task) { // Méthode pour ajouter une tâche
     if (task) {
-      this.tasks.push(task);
+      this.tasks.push(task); // Ajout de la tâche au tableau
     } else {
-      console.log('No task to add');
+      console.log('Aucune tâche à ajouter'); // Message d'erreur si aucune tâche à ajouter
     }
-    this.selectedTaskId = this.lastId();
-    this.saveTasks();
+    this.selectedTaskId = this.lastId(); // Mise à jour de l'ID de la tâche sélectionnée
+    this.saveTasks(); // Sauvegarde des tâches
   }
-  getTasks(): Array<Task> {
+
+  getTasks(): Array<Task> { // Méthode pour obtenir toutes les tâches
     return this.tasks;
   }
-  getTask(id: number): Task {
-    return this.tasks[id];
-  }
-  removeTask(id: number) {
-    this.tasks.splice(id, 1);
-    this.selectedTaskId = this.lastId();
-    this.saveTasks();
-  }
-  loadTasks() {
-    let tasks = localStorage.getItem('tasks');
-    if (tasks) {
-      this.tasks = JSON.parse(tasks);
-    } else {
-      console.log('No tasks found');
-    }
-    this.selectedTaskId = this.lastId();
-  }
-  saveTasks() {
-    localStorage.setItem('tasks', JSON.stringify(this.tasks));
-  }
-}
 
-export class Task {
-  public name: string;
-  public description: string;
-  public priority: string;
-  public status: string;
-  public dueDate: string;
-  public creationDate: string;
-  constructor(name: string, description: string, priority: string, dueDate: string) {
-    this.name = name;
-    this.description = description;
-    this.priority = priority;
-    this.status = 'Ongoing';
-    this.dueDate = dueDate;
-    this.creationDate = new Date().toLocaleDateString('sv');
+  getTask(id: number): Task { // Méthode pour obtenir une tâche spécifique par son ID
+    return this.tasks[id];
   }
 }
