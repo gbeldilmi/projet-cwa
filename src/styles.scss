@@ -49,8 +49,9 @@ body {
   }
 }
 
-p {
+p, input[type="text"] {
   text-align: justify;
+  word-wrap: break-word;
 }
 
 // =============================================================================
@@ -82,6 +83,7 @@ p {
   button, p {
     margin: 0.7rem 0;
     text-align: center;
+    word-wrap: break-word;
   }
   button {
     min-width: 20rem;
